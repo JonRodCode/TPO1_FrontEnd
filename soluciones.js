@@ -45,3 +45,17 @@ function esPalindromo(texto) {
 }
 console.log(esPalindromo("Muy complicado escribir un texto que sea palindromo asi que:"));
 console.log(esPalindromo("Espejo, espejito dime quien es el mas bonito ... soy yo? : ?oy yos ... otinob sam le se neiuq emid otijepse ,ojepsE"));
+
+// 5. Crear un programa para convertir la edad de un perro a años humanos
+
+function edadHumanaDeUnPerro(){
+    let edadDelPerro = Number(prompt("¿Que edad tiene tu perrito? "));
+    console.log(edadDelPerro)
+    console.log(typeof edadDelPerro)
+    while (isNaN(edadDelPerro)){
+        edadDelPerro = Number(prompt("Dale, escribi el número de la edad del perro... "));
+    }
+    console.log(`Tu perrito tiene ${edadDelPerro *7} años humanos.`);
+}
+
+edadHumanaDeUnPerro();
