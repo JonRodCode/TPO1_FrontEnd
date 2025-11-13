@@ -53,7 +53,7 @@ function edadHumanaDeUnPerro(){
     }
     console.log(`Tu perrito tiene ${edadDelPerro *7} años humanos.`);
 }
-//edadHumanaDeUnPerro();
+edadHumanaDeUnPerro();
 
 
 // 6. Convertir la primera letra de cada palabra en mayúscula
@@ -208,11 +208,36 @@ const peliculas = [
  ];
 
 // 1. Foreach
+console.log("Titulo y año de las peliculas: ")
+peliculas.forEach((pelicula) => {
+    console.log(`${pelicula.titulo}: ${pelicula.año}`)
+})
+
 
 // 2. Map
+const peliculasEnMayus = peliculas.map((pelicula) => pelicula.titulo.toUpperCase())
+console.log("Titulos de peliculas:");
+console.log(peliculasEnMayus);
+
 
 // 3. Filter
+const peliculasConBuenRating = peliculas.filter((pelicula) => {
+    if (pelicula.rating > 8.5 && pelicula.genero === "drama") {
+        return pelicula;
+    }
+})
+console.log("Peliculas de drama con rating mayor a 8.5:");
+console.log(peliculasConBuenRating);
+
 
 // 4. Find
+const peliculaBuscada = peliculas.find((pelicula) => pelicula.año === 2014)
+console.log("Pelicula estrenada en 2014:");
+console.log(peliculaBuscada);
+
 
 // 5.  Reduce
+const duracionTotal = peliculas.reduce((acumulador, pelicula) => {
+    return acumulador + pelicula.duracion;
+}, 0)
+console.log(`La duración total de todas las peliculas es de ${duracionTotal} minutos`)
