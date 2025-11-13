@@ -53,7 +53,7 @@ function edadHumanaDeUnPerro(){
     }
     console.log(`Tu perrito tiene ${edadDelPerro *7} años humanos.`);
 }
-edadHumanaDeUnPerro();
+//edadHumanaDeUnPerro();
 
 
 // 6. Convertir la primera letra de cada palabra en mayúscula
@@ -114,9 +114,11 @@ productos.forEach((producto) => {
     console.log(`${producto.nombre}: $${producto.precio}`);
 })
 
+
 // 2. Map
 const nombres = productos.map((producto)=> producto.nombre)
 console.log(`Nombre de los productos: ${nombres}`);
+
 
 // 3. Filter
 const productosElectronicosConStockMayorA20 = productos.filter((producto) => {
@@ -127,10 +129,12 @@ const productosElectronicosConStockMayorA20 = productos.filter((producto) => {
 console.log("Productos electrónicos con stock mayor a 20:");
 console.log(productosElectronicosConStockMayorA20);
 
+
 // 4. Find
 const productoId3 = productos.find((producto) => producto.id === 3);
 console.log("Producto con id 3: ");
 console.log(productoId3);
+
 
 // 5.  Reduce
 const valorTotalDeInventario = productos.reduce((total, producto)=> {
@@ -148,19 +152,60 @@ const estudiantes = [
   { id: 4, nombre: 'Juan', edad: 19, calificaciones: [7, 6, 5, 8] }
  ];
 
-
 // 1. Foreach
+console.log("Nombre y edad de estudiantes: ")
+estudiantes.forEach((estudiante) => {
+    console.log(`${estudiante.nombre}: ${estudiante.edad} años.`)
+})
+
 
 // 2. Map
+//Funcion extra para calcular promedios:
+function calcularPromedio(estudiante){
+    return promedio = estudiante.calificaciones.reduce((acumulador, nota) => {
+        return acumulador + nota;
+    },0 ) / estudiante.calificaciones.length;
+}
+const promedioDeEstudiantes = estudiantes.map((estudiante) => {
+    return {nombre: estudiante.nombre,
+        promedio: calcularPromedio(estudiante)
+    } 
+})
+console.log("Nombre y promedio de estudiantes: ")
+console.log(promedioDeEstudiantes);
+
 
 // 3. Filter
+const estudiantesConBuenPromedio = estudiantes.filter((estudiante)=> {
+    if (calcularPromedio(estudiante) > 7.5) {
+        return estudiante;
+    }
+})
+console.log("Estudiantes con promedio mayor a 7.5: ")
+console.log(estudiantesConBuenPromedio);
+
 
 // 4. Find
+const estudianteBuscado = estudiantes.find((estudiante)=> estudiante.nombre === "María")
+console.log("Estudiante buscado:");
+console.log(estudianteBuscado);
+
 
 // 5.  Reduce
+const edadPromedio = estudiantes.reduce((acumulador, estudiante) => {
+    return acumulador + estudiante.edad;
+}, 0) / estudiantes.length;
+console.log(`La edad promedio de los estudiantes es de ${edadPromedio} años.`)
 
 
 // 10. Películas
+const peliculas = [
+  { id: 1, titulo: 'El Padrino', año: 1972, duracion: 175, genero: 'drama', rating: 9.2 },
+  { id: 2, titulo: 'Pulp Fiction', año: 1994, duracion: 154, genero: 'crimen', rating: 8.9 },
+  { id: 3, titulo: 'El Señor de los Anillos', año: 2001, duracion: 178, genero: 'fantasía', rating: 8.8 },
+  { id: 4, titulo: 'Interestelar', año: 2014, duracion: 169, genero: 'ciencia ficción', rating: 8.6 },
+  { id: 5, titulo: 'Parásitos', año: 2019, duracion: 132, genero: 'drama', rating: 8.6 }
+ ];
 
 // 1. Foreach
 
